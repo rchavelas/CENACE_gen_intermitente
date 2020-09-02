@@ -27,7 +27,11 @@ mes_num <- case_when(mes == "ene" ~ "01",
                      mes == "may" ~ "05",
                      mes == "jun" ~ "06",
                      mes == "jul" ~ "07",
-                     mes == "ago" ~ "08")
+                     mes == "ago" ~ "08",
+                     mes == "sep" ~ "09",
+                     mes == "oct" ~ "10",
+                     mes == "nov" ~ "11",
+                     mes == "dic" ~ "12")
 CENACE <- 
   CENACE %>% mutate(Mes = mes_num, Fecha = dmy(paste(Dia,Mes,Anio,sep="/")))
 head(CENACE)
@@ -49,7 +53,7 @@ plot_gen_dia <- CENACE_tipo_tecnologia %>%  ggplot(aes(x = Fecha, y = Pronostico
   theme_bw() +
   labs(title = "Pronóstico de Generación Intermitente diario por tipo de tecnología",
        y = "Pronóstico de Generación (MWh)",
-       subtitle = "Del 1o de marzo al 30 de agosto. Línea punteada: promedio móvil a 14 días",
+       subtitle = "Del 01/jun/2019 al 30/ago/2020. Línea punteada: promedio móvil a 14 días",
        caption = "Con información de: Área Pública del Sistema de Información del Mercado (SIM) - CENACE \n
        https://www.cenace.gob.mx/Paginas/SIM/MercadoCP.aspx | RCM",
        colour = "Tipo de tecnología")+ 
@@ -72,7 +76,7 @@ plot_gen_dia_acum <- CENACE_tipo_tecnologia %>%  ggplot(aes(x = Fecha, y = Prono
   theme_bw() +
   labs(title = "Pronóstico de Generación Intermitente diario por tipo de tecnología - Total",
        y = "Pronóstico de Generación (MWh)",
-       subtitle = "Del 1o de marzo al 30 de agosto",
+       subtitle = "Del 01/jun/2019 al 30/ago/2020.",
        caption = "Con información de: Área Pública del Sistema de Información del Mercado (SIM) - CENACE \n
        https://www.cenace.gob.mx/Paginas/SIM/MercadoCP.aspx | RCM",
        fill = "Tipo de tecnología")+ 
@@ -99,7 +103,7 @@ plot_gen_dia_tot <- CENACE_tipo_tecnologia %>%
   theme_bw() +
   labs(title = "Pronóstico de Generación Intermitente diario - Total",
        y = "Pronóstico de Generación (MWh)",
-       subtitle = "Del 1o de marzo al 30 de agosto. Línea punteada: promedio móvil a 14 días",
+       subtitle = "Del 01/jun/2019 al 30/ago/2020. Línea punteada: promedio móvil a 14 días",
        caption = "Con información de: Área Pública del Sistema de Información del Mercado (SIM) - CENACE \n
        https://www.cenace.gob.mx/Paginas/SIM/MercadoCP.aspx | RCM")+ 
   theme(panel.border = element_blank()) +

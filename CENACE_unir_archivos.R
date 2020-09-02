@@ -28,7 +28,7 @@ for(archivo_CENACE in archivos_CENACE_lista){
   pron_data$Fecha <- fecha
   cat(paste("\n Leyendo archivo -",nom_archivo,"-"))
   cat("\n Primeros 5 registros: \n")
-  print(head(pron_data))
+  # print(head(pron_data))
   pron_data_all <- rbind(pron_data_all,pron_data)
 }
 
